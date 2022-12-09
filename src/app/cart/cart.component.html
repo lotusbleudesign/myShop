@@ -1,3 +1,7 @@
+<script
+  src="https://kit.fontawesome.com/1ab2f2f97c.js"
+  crossorigin="anonymous"
+></script>
 <div class="grid">
   <div class="card">
     <div>
@@ -10,37 +14,55 @@
             <td>Delete</td>
           </tr>
         </thead>
-        <div *ngIf="listItems.length === 0">
+        <div *ngIf="listItems.size === 0">
           No products in the cart
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
-        <tbody *ngFor="let item of listItems">
-          <tr class="mytd">
-            <td rowspan="4" class="imgCenter">
-              <img width="100" src="{{ item.product.picture }}" />
+        <tbody *ngFor="let item of listItems | keyvalue">
+          <tr class="mytd cartItem">
+            <td>
+              <div>
+                <img src="{{ item.value.product.picture }}" />
+              </div>
             </td>
             <td>
               <div>
-                <h3>{{ item.product.name }}</h3>
+                <h3>{{ item.value.product.name }}</h3>
               </div>
-              <div>Couleur : {{ item.product.specifications.color }}</div>
-              <div>Poids :{{ item.product.specifications.weight }}</div>
-              <div>Stockage :{{ item.product.specifications.storage }}</div>
+              <div>Couleur : {{ item.value.product.specifications.color }}</div>
+              <div>Poids :{{ item.value.product.specifications.weight }}</div>
+              <div>
+                Stockage :{{ item.value.product.specifications.storage }}
+              </div>
             </td>
             <td>
-              <b> {{ item.counter }}</b>
+              <i
+                class="fa-regular fa-square-plus addOrSub"
+                (click)="addItem(item.value.product)"
+              ></i>
+              <b> {{ item.value.counter }} </b>
+              <i
+                class="fa-regular fa-square-minus addOrSub"
+                (click)="delItem(item.value.product)"
+              ></i>
             </td>
-            <td>{{ item.product.specifications.price | currency : "EUR" }}</td>
+            <td>
+              {{ item.value.product.specifications.price | currency : "EUR" }}
+            </td>
             <td width="150">
-              <button class="btn-delete" (click)="deleteService(item.product)">
+              <button
+                class="btn-delete"
+                (click)="deleteService(item.value.product)"
+              >
                 <i class="fa-regular fa-trash-can"></i> Delete
               </button>
             </td>
           </tr>
         </tbody>
+
         <thead>
           <tr>
-            <td colspan="2">TOTAL</td>
+            <td colspan="2"><b>TOTAL</b></td>
             <td>
               <b>{{ valueTotal }}</b>
             </td>
@@ -49,6 +71,32 @@
             </td>
           </tr>
         </thead>
+
+        <!-- Your Order -->
+        <tr class="order">
+          <td colspan="5">
+            <table>
+              <tr>
+                <th colspan="2">Your Order</th>
+              </tr>
+              <tbody>
+                <tr *ngFor="let item of listItems | keyvalue">
+                  <td></td>
+                  <td class="txtAlignR">
+                    {{ item.value.counter }} - {{ item.value.product.name }}
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Total</b></td>
+                  <td class="txtAlignR">
+                    <b>{{ montant | currency : "EUR" }}</b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <!-- Your Order -->
       </table>
     </div>
   </div>

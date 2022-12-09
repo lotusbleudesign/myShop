@@ -6,6 +6,8 @@
 
   /* border: solid 1px #333; */
   margin: 30px auto;
+  padding-left: 30px;
+  padding-right: 30px;
   display: grid;
 
   /* grid template s'auto adpate en fonction largeur de mes items */

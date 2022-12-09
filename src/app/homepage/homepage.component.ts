@@ -8,27 +8,7 @@ import { Product } from '../product/product';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
-
-  // //////////
-  // messsageChange = "Welcome to {{ title }}";
-  // // capturer un évenement issu de l'enfant via une méthode
-  // onChangeName(value: string): void {
-  //   this.nameParent = value;
-  // }
-  // ///////////
-
-  msgParent = "Welcome to Myshop";
-  onChangeMsg(value: string): void {
-    this.msgParent = value;
-  }
-
-  ngOnInit(): void {
-  }
-  title = 'Myshop';
   //products = []
-
-
   products = [
     {
       id: 1,
@@ -86,5 +66,18 @@ export class HomepageComponent implements OnInit {
       picture: "../../assets/iphone14-1.jpeg"
     }
   ]
+
+  welcomeMessage = "Welcome to Myshop";
+  title = this.welcomeMessage
+
+  constructor() { }
+
+  onChangeMsg(value: string): void {
+    this.title = value;
+  }
+
+  ngOnInit(): void {
+  }
+
 
 }

@@ -24,7 +24,7 @@ registerLocaleData(localeDe, 'fr-FR', localeDeExtra);
     HomepageComponent,
     CartComponent,
     ProfileComponent,
-    PopupComponent
+    PopupComponent,
   ],
   imports: [
     BrowserModule,

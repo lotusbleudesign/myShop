@@ -1,3 +1,7 @@
+<script
+  src="https://kit.fontawesome.com/1ab2f2f97c.js"
+  crossorigin="anonymous"
+></script>
 <div class="card-container">
   <a class="card">
     <table>
@@ -35,8 +39,8 @@
           class="btn"
           (click)="addService(product)"
           [ngClass]="['btnOver']"
-          (mouseover)="changeMessage2(randomMessage)"
-          (mouseleave)="btnClicked('Welcome to the shop !')"
+          (mouseover)="changeMessage()"
+          (mouseleave)="restoreMessage()"
         >
           Add to card
         </button>

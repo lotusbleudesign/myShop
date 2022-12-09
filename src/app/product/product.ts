@@ -13,7 +13,6 @@ export interface Product {
 export interface CartProduct {
   counter: number;
   product: Product;
-  price: number;
 }
 
-export type MapOfCartProduct = { [key: string]: CartProduct }
+export type MapOfCartProduct = Map<string, CartProduct>

@@ -2,17 +2,19 @@ table {
   width: 98%;
   margin: 10px;
   padding: 10px;
+  align-items: center;
 }
 
-thead {
+thead,
+tr {
   background-color: #eee;
-  border: solid 1px black;
   text-align: center;
 }
 
 td {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   text-align: center;
+  background-color: #eee;
 }
 
 .grid {
@@ -44,4 +46,40 @@ td {
   font-size: 14px;
   border-radius: 2px;
   cursor: pointer;
+}
+
+.txtAlignR {
+  text-align: left;
+  width: 300px;
+}
+
+tr.order,
+.order tr,
+.order td {
+  /* border: solid 1px black; */
+  background-color: #ddd;
+}
+tr.order > td:first-child {
+  border: solid 1px rgb(78, 78, 78);
+}
+
+.addOrSub {
+  cursor: pointer;
+}
+
+.cartItem img {
+  height: 110px;
+  width: auto;
+}
+
+.cartItem td:first-child {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
+}
+
+.cartItem td:first-child div {
+  background-color: white;
+  border: solid 3px #eee;
+  border-radius: 10px;
 }

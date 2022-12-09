@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/services/cart.service';
-import { Product, CartProduct } from 'src/app/product/product';
+import { Product, MapOfCartProduct } from 'src/app/product/product';
 
 
 @Component({
@@ -11,7 +11,12 @@ import { Product, CartProduct } from 'src/app/product/product';
 export class CartComponent implements OnInit {
 
   @Input() item: any;
-  @Input() total: any;
+
+  public listItems: MapOfCartProduct;
+
+  constructor(private CartService: CartService) {
+  }
+
 
   public get valueTotal(): number {
     return this.CartService.getTotalProduct()
@@ -21,16 +26,20 @@ export class CartComponent implements OnInit {
     return '' + this.CartService.getTotalPrice()
   }
 
-  constructor(private CartService: CartService) {
-  }
-
-  public listItems: CartProduct[] = [];
-
   ngOnInit(): void {
     this.listItems = this.CartService.getItemList();
   }
 
   deleteService(item: Product) {
+    //this.CartService.subProduct(item);
+    this.CartService.removeProduct(item);
+  }
+
+  addItem(item: Product) {
+    this.CartService.addProduct(item);
+  }
+
+  delItem(item: Product) {
     this.CartService.subProduct(item);
   }
 
