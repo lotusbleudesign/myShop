@@ -1,0 +1,29 @@
+<!-- Highlight Card -->
+<div class="title">
+  <!-- <h2>Welcome to {{ title }}</h2> -->
+  <h2>{{ msgParent }}</h2>
+</div>
+<div *ngIf="products.length === 0">
+  <div class="grid">
+    <p>No products on sale</p>
+  </div>
+</div>
+<div *ngIf="products.length > 0">
+  <div class="grid" #modal>
+    <!-- <app-product
+      class="grid-item"
+      *ngFor="let product of products"
+      [product]="product"
+      [name]="nameParent"
+      (changeName)="onChangeName($event)"
+
+
+    ></app-product> -->
+    <app-product
+      class="grid-item"
+      *ngFor="let product of products"
+      [product]="product"
+      (messsageChange)="onChangeMsg($event)"
+    ></app-product>
+  </div>
+</div>

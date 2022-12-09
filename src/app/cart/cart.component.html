@@ -1,0 +1,55 @@
+<div class="grid">
+  <div class="card">
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <td colspan="2">PRODUCT</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <div *ngIf="listItems.length === 0">
+          No products in the cart
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <tbody *ngFor="let item of listItems">
+          <tr class="mytd">
+            <td rowspan="4" class="imgCenter">
+              <img width="100" src="{{ item.product.picture }}" />
+            </td>
+            <td>
+              <div>
+                <h3>{{ item.product.name }}</h3>
+              </div>
+              <div>Couleur : {{ item.product.specifications.color }}</div>
+              <div>Poids :{{ item.product.specifications.weight }}</div>
+              <div>Stockage :{{ item.product.specifications.storage }}</div>
+            </td>
+            <td>
+              <b> {{ item.counter }}</b>
+            </td>
+            <td>{{ item.product.specifications.price | currency : "EUR" }}</td>
+            <td width="150">
+              <button class="btn-delete" (click)="deleteService(item.product)">
+                <i class="fa-regular fa-trash-can"></i> Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <td colspan="2">TOTAL</td>
+            <td>
+              <b>{{ valueTotal }}</b>
+            </td>
+            <td colspan="2">
+              <b>{{ montant | currency : "EUR" }}</b>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

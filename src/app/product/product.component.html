@@ -1,0 +1,47 @@
+<div class="card-container">
+  <a class="card">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">
+            <img width="150" src="{{ product.picture }}" class="imgCenter" />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="titre">
+            <h3>{{ product.name }}</h3>
+          </td>
+        </tr>
+        <tr>
+          <td class="titre">Spécifications</td>
+        </tr>
+        <tr>
+          <td>
+            <ul>
+              <li>{{ product.specifications.color }}</li>
+              <li>{{ product.specifications.weight }}</li>
+              <li>{{ product.specifications.storage }}</li>
+              <li>
+                {{ product.specifications.price | currency : "EUR" }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+      <div class="center">
+        <button
+          class="btn"
+          (click)="addService(product)"
+          [ngClass]="['btnOver']"
+          (mouseover)="changeMessage2(randomMessage)"
+          (mouseleave)="btnClicked('Welcome to the shop !')"
+        >
+          Add to card
+        </button>
+      </div>
+    </table>
+  </a>
+</div>
+<app-popup #modal></app-popup>

@@ -1,0 +1,36 @@
+.grid {
+  /* définir max et minim de l'écran */
+  max-width: 1300px;
+  width: 100%;
+  height: auto;
+
+  /* border: solid 1px #333; */
+  margin: 30px auto;
+  display: grid;
+
+  /* grid template s'auto adpate en fonction largeur de mes items */
+  grid-template-columns: repeat(auto-fill, 230px);
+  grid-gap: 20px; /* marge entre les items */
+  justify-content: center;
+}
+
+.grid-item {
+  width: 200px;
+  /* background-color: #333; */
+  border-radius: 10px;
+
+  /* positionner les cards */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  /* border: solid 1px; */
+  display: block;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+}
